@@ -27,6 +27,7 @@ def get_dsmr_connection_parameters() -> Dict:
         DataloggerSettings.DSMR_VERSION_4_PLUS: telegram_specifications.V5,
         DataloggerSettings.DSMR_BELGIUM_FLUVIUS: telegram_specifications.BELGIUM_FLUVIUS,
         DataloggerSettings.DSMR_LUXEMBOURG_SMARTY: telegram_specifications.LUXEMBOURG_SMARTY,
+        DataloggerSettings.DSMR_SWEDEN: telegram_specifications.SWEDEN,
     }
 
     datalogger_settings = DataloggerSettings.get_solo()
@@ -219,6 +220,12 @@ def _get_dsmrreader_mapping(version: int) -> Dict:
         mapping.update({
             obis_references.LUXEMBOURG_ELECTRICITY_USED_TARIFF_GLOBAL: 'electricity_delivered_1',
             obis_references.LUXEMBOURG_ELECTRICITY_DELIVERED_TARIFF_GLOBAL: 'electricity_returned_1',
+        })
+
+    if version == DataloggerSettings.DSMR_SWEDEN:
+        mapping.update({
+            obis_references.SWEDEN_ELECTRICITY_USED_TARIFF_GLOBAL: 'electricity_delivered_1',
+            obis_references.SWEDEN_ELECTRICITY_DELIVERED_TARIFF_GLOBAL: 'electricity_returned_1',
         })
 
     return mapping

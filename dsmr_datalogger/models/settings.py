@@ -21,11 +21,13 @@ class DataloggerSettings(ModelUpdateMixin, SingletonModel):
     DSMR_VERSION_2_3 = 3
     DSMR_BELGIUM_FLUVIUS = 101
     DSMR_LUXEMBOURG_SMARTY = 102
+    DSMR_SWEDEN = 103
     DSMR_VERSION_CHOICES = (
         (DSMR_VERSION_4_PLUS, _('Netherlands - DSMR version 4/5 (default)')),
         (DSMR_VERSION_2_3, _('Netherlands - DSMR version 2/3')),
         (DSMR_BELGIUM_FLUVIUS, _('Belgium - Fluvius (gas meter fix)')),
         (DSMR_LUXEMBOURG_SMARTY, _('Luxembourg - Smarty (single tariff fix)')),
+        (DSMR_SWEDEN, _('Sweden - Unknown (single tariff fix)')),
     )
 
     input_method = models.CharField(
